@@ -1,6 +1,7 @@
 {
   "name": "demo-cdk",
   "version": "0.1.0",
+  "license": "UNLICENSED",
   "bin": {
     "demo-cdk": "bin/demo-cdk.js"
   },
@@ -9,8 +10,8 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "deploy:dev": "yarn cdk bootstrap && yarn cdk deploy",
-    "destroy": "yarn cdk destroy"
+    "deploy:dev": "yarn cdk synth && yarn cdk deploy --all",
+    "destroy": "yarn cdk destroy --all"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

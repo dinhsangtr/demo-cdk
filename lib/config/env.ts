@@ -5,23 +5,24 @@ export const stage = (getEnv('STAGE') || 'dev').toLowerCase();
 export const prefix = `${project}-${stage}`;
 
 export const ENV = {
+  prefix: prefix,
   // AWS
   awsAccountId: getEnv('AWS_ACCOUNT_ID') || '',
   region: getEnv('REGION') || 'ap-southeast-1',
   projectName: project,
   stage: stage,
-  // Domain
-  domainName: getEnv('DOMAIN_NAME') || '',
   // Github
-  githubUsername: getEnv('GITHUB_USERNAME') || '',
-  githubToken: getEnv('GITHUB_TOKEN') || '',
+  githubOwner: getEnv('GITHUB_OWNER') || '',
   githubRepoFe: getEnv('GITHUB_REPO_FE') || '',
   githubRepoFeBranch: getEnv('GITHUB_REPO_FE_BRANCH') || 'main',
-  //
-  distribution: `${prefix}-distribution`,
-  vpcName: `${prefix}-vpc`,
-  cidrBlock: '10.128.0.0/16',
-  // FE
-  bucketName: `${prefix}-bucket`,
-  certificateName: `${prefix}-certificate`,
+  // AWS Secret
+  // githubTokenSecret: getEnv('AWS_GITHUB_TOKEN_SECRET') || '',
+  // Code Pipeline - Connection
+  connectionArn: getEnv('CONNECTION_ARN') || '',
+  // Route53
+  hostedZoneName: getEnv('HOSTED_ZONE_NAME') || '',
+  domainName: getEnv('DOMAIN_NAME') || '',
+  // ACM
+  // acmDomainName: getEnv('ACM_DOMAIN_NAME') || '',
+  certificateARN: getEnv('CERTIFICATE_ARN') || '',
 };
